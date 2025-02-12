@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-detectproxy",
+  "displayName": "DetectProxy",
+  "version": "1.0.0",
+  "description": "Plugin Cordova para detectar proxies en Android/iOS",
+  "cordova": {
+    "id": "cordova-plugin-detectproxy",
+    "platforms": ["android", "ios"]
+  },
+  "author": "Guillermo Cabrera"
+}

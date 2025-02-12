@@ -1,0 +1,41 @@
+<plugin id="cordova-plugin-detectproxy" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>DetectProxy</name>
+    <!-- Registrar el módulo JavaScript -->
+    <js-module name="DetectProxy" src="www/detectproxy.js">
+        <clobbers target="cordova.plugins.DetectProxy" />
+    </js-module>
+     <platform name="android">
+        <!-- Registrar la clase Java en el `config.xml` de Cordova -->
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="DetectProxy">
+                <param name="android-package" value="cl.oneapp.detectproxy.DetectProxy" />
+            </feature>
+        </config-file>
+
+        <!-- Permiso de Internet -->
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+
+        <!-- Registrar el código Java -->
+        <source-file src="src/android/cl/oneapp/detectproxy/DetectProxy.java" target-dir="src/cl/oneapp/detectproxy" />
+
+    </platform>
+    <platform name="ios">
+
+         <config-file target="config.xml" parent="/*">
+            <feature name="DetectProxy">
+                <param name="ios-package" value="DetectProxy" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <false/>
+            </dict>
+        </config-file>
+        <source-file src="src/ios/DetectProxy.swift" />
+    </platform>
+
+</plugin>
